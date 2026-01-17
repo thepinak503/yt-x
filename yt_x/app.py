@@ -80,7 +80,7 @@ class YTXApp(App):
         super().__init__()
         self.config = Config()
         self.ytdlp = YTDLP(self.config)
-        self.player = Player(self.config)
+        self.player = Player(self.config, ytdlp_instance=self.ytdlp)
 
     def on_mount(self) -> None:
         self.push_screen("main")
