@@ -232,5 +232,3 @@ Main {
         Start-Process "cmd.exe" -Argument "/c exit" -Wait
     }
 }
-
-Main
