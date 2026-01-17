@@ -192,7 +192,7 @@ winget install VideoLAN.VLC
 
 **Solution 2**: Use mpv instead
 ```powershell
-winget install mpv-player.mpv
+winget install mpv
 ```
 
 ### Application Won't Start
