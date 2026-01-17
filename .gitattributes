@@ -1,0 +1,16 @@
+# Git attributes for yt-x
+# Prevent line ending issues and handle large files
+
+# EXE files - binary
+*.exe binary
+*.dll binary
+*.zip binary
+
+# Scripts - text with Windows line endings
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+*.py text eol=lf
+*.md text eol=lf
+
+# Large files
+*.exe -diff
