@@ -50,15 +50,17 @@ A modern, Windows-native terminal application for browsing YouTube and other yt-
 
 #### Option 1: Pre-compiled EXE (Recommended - Built & Ready)
 
-Download EXE directly from the repository:
+Download EXE directly from the repository (no Python installation required):
 
 ```powershell
 # Download from GitHub (12 MB)
 curl -L -o yt-x.exe https://raw.githubusercontent.com/thepinak503/yt-x/main/dist/yt-x.exe
 
-# Or get the latest from dist folder
-# The EXE is already built and in the repository
+# Or get from GitHub Releases
+# https://github.com/thepinak503/yt-x/releases/latest/download/yt-x.exe
 ```
+
+**Note**: The EXE includes automatic dependency checking and will guide you if any required packages are missing.
 
 Or download from the [Releases](https://github.com/thepinak503/yt-x/releases) page.
 
@@ -134,10 +136,110 @@ yt-x -v
 
 # Show help
 yt-x -h
-
-# Check dependencies
-yt-x deps
 ```
+
+## Troubleshooting
+
+### Error: "ModuleNotFoundError: No module named 'textual'"
+
+**Cause**: Python dependencies not installed
+
+**Solution 1**: Install dependencies manually
+```powershell
+pip install -r requirements.txt
+```
+
+**Solution 2**: Use auto-installer
+```powershell
+# PowerShell (one-command, recommended)
+irm https://raw.githubusercontent.com/thepinak503/yt-x/main/install.ps1 | iex
+
+# Batch
+.\install.bat
+```
+
+**Solution 3**: Use pre-compiled EXE
+```powershell
+# Download EXE (no Python needed)
+curl -L -o yt-x.exe https://raw.githubusercontent.com/thepinak503/yt-x/main/dist/yt-x.exe
+
+# Run directly
+.\yt-x.exe
+```
+
+### Error: "yt-dlp not found"
+
+**Cause**: YouTube data fetcher not installed
+
+**Solution 1**: Install via winget
+```powershell
+winget install yt-dlp
+```
+
+**Solution 2**: Install via pip
+```powershell
+pip install yt-dlp
+```
+
+### Error: "VLC not found"
+
+**Cause**: Video player not installed
+
+**Solution 1**: Install via winget
+```powershell
+winget install VideoLAN.VLC
+```
+
+**Solution 2**: Use mpv instead
+```powershell
+winget install mpv-player.mpv
+```
+
+### Application Won't Start
+
+**Symptoms**:
+- Double-clicking does nothing
+- Command shows "is not recognized"
+
+**Solutions**:
+
+1. **Check Python installation**
+```powershell
+python --version
+# Should be 3.8 or higher
+```
+
+2. **Run using batch launcher**
+```powershell
+.\yt-x.bat
+# Finds Python automatically and runs with it
+```
+
+3. **Install dependencies**
+```powershell
+pip install -r requirements.txt
+```
+
+### VLC Won't Play Video
+
+**Symptoms**:
+- VLC opens but video doesn't play
+- "network error" in VLC
+
+**Solutions**:
+
+1. **Check yt-dlp is working**
+```powershell
+yt-dlp "VIDEO_URL" --get-url
+# Should return direct stream URL
+```
+
+2. **Test VLC directly**
+```powershell
+vlc "DIRECT_STREAM_URL"
+```
+
+3. **Check network connection**
 
 ## Configuration
 
