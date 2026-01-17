@@ -48,13 +48,29 @@ A modern, Windows-native terminal application for browsing YouTube and other yt-
 
 ### Installing yt-x
 
-#### Option 1: Pre-compiled EXE (Recommended for Windows)
+#### Option 1: Pre-compiled EXE (Recommended - Built & Ready)
 
-Download the pre-compiled EXE from the [Releases](https://github.com/thepinak503/yt-x/releases) page.
+Download EXE directly from the repository:
 
 ```powershell
-# Download and run
-yt-x.exe
+# Download from GitHub (12 MB)
+curl -L -o yt-x.exe https://raw.githubusercontent.com/thepinak503/yt-x/main/dist/yt-x.exe
+
+# Or get the latest from dist folder
+# The EXE is already built and in the repository
+```
+
+Or download from the [Releases](https://github.com/thepinak503/yt-x/releases) page.
+
+**Built EXE Status**:
+- ✅ Size: 12 MB
+- ✅ Location: `dist/yt-x.exe`
+- ✅ Python: No installation required
+- ✅ Ready to use immediately
+
+```powershell
+# Run the downloaded EXE
+.\yt-x.exe
 ```
 
 #### Option 2: Batch File Launcher (Portable)
