@@ -330,14 +330,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Credits
 
 - Original yt-x by [Benexl](https://github.com/Benex254/yt-x)
-- Windows native version by [pinakdhabu](https://github.com/pinakdhabu/yt-x)
-
 ## Support
 
 For issues and feature requests:
 - [GitHub Issues](https://github.com/pinakdhabu/yt-x/issues)
-- [Discord](https://discord.gg/HBEmAwvbHV)
-
 ## Acknowledgments
 
 - [yt-dlp](https://github.com/yt-dlp/yt-dlp) - YouTube data extraction
