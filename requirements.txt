@@ -1,0 +1,4 @@
+textual>=7.3.0
+rich>=14.2.0
+requests>=2.32.0
+platformdirs>=4.5.0
