@@ -17,14 +17,24 @@ A modern, Windows-native terminal application for browsing YouTube and other yt-
 - 🔗 **Browser Integration** - Open videos in your browser
 - ⚙️ **Configurable** - Customize everything
 - 🎨 **Windows Native** - Built specifically for Windows
+- 🔄 **VLC m3u8 Support** - Automatic deep link resolution and m3u8 playlist creation for VLC
+- ⚡ **Fast Playback** - Opens VLC instantly with resolved video streams
 
 ## Installation
 
+### Quick Start
+
+1. Run `test-deps.bat` to verify dependencies
+2. Install any missing dependencies
+3. Run yt-x using one of the options below
+
 ### Prerequisites
 
-Install the following dependencies:
+1. **Python** (Required)
+   - Python 3.8 or higher (3.10+ recommended for best compatibility)
+   - Download from https://python.org
 
-1. **yt-dlp** (Required)
+2. **yt-dlp** (Required)
    ```powershell
    # Using winget
    winget install yt-dlp
@@ -32,31 +42,36 @@ Install the following dependencies:
    # Or download from https://github.com/yt-dlp/yt-dlp/releases
    ```
 
-2. **Video Player** (Optional but recommended)
+3. **Video Player** (Optional but recommended)
+   - **VLC** (Best for m3u8 playlists): `winget install VideoLAN.VLC`
    - **mpv**: `winget install mpv-player.mpv`
-   - **VLC**: `winget install VideoLAN.VLC`
-
-3. **Python** (Required)
-   - Python 3.8 or higher
-   - Download from https://python.org
 
 ### Installing yt-x
 
-#### Option 1: Using pip (Recommended)
+#### Option 1: Pre-compiled EXE (Recommended for Windows)
+
+Download the pre-compiled EXE from the [Releases](https://github.com/thepinak503/yt-x/releases) page.
 
 ```powershell
-# Install from pip
-pip install yt-x
-
-# Run
-yt-x
+# Download and run
+yt-x.exe
 ```
 
-#### Option 2: From Source
+#### Option 2: Batch File Launcher (Portable)
+
+Use the included `yt-x.bat` file:
 
 ```powershell
-# Clone the repository
-git clone https://github.com/pinakdhabu/yt-x.git
+# Double-click yt-x.bat
+# Or run from command line
+.\yt-x.bat
+```
+
+#### Option 3: From Source (Python required)
+
+```powershell
+# Clone repository
+git clone https://github.com/thepinak503/yt-x.git
 cd yt-x
 
 # Install dependencies
@@ -66,9 +81,15 @@ pip install -r requirements.txt
 python yt-x.py
 ```
 
-#### Option 3: Compiled EXE
+#### Option 4: Using pip (when published)
 
-Download the pre-compiled EXE from the [Releases](https://github.com/pinakdhabu/yt-x/releases) page.
+```powershell
+# Install from pip
+pip install yt-x
+
+# Run
+yt-x
+```
 
 ## Usage
 
@@ -166,17 +187,50 @@ For each video, you can:
 
 ## Building from Source
 
-### Compile to EXE
+### Compile to EXE (Requires Python 3.8-3.14)
+
+**Note: Python 3.15+ may have build tool compatibility issues. Use Python 3.8-3.14 for best results.**
+
+#### Using PyInstaller (Recommended)
+
+```powershell
+# Install PyInstaller
+pip install pyinstaller
+
+# Build EXE
+pyinstaller --onefile --windowed --name yt-x --add-data "yt_x;yt_x" --clean yt-x.py
+
+# The EXE will be created in dist\yt-x.exe
+```
+
+#### Using Nuitka
 
 ```powershell
 # Install Nuitka
-pip install Nuitka
+pip install Nuitka ordered-set zstandard
 
 # Compile (single file)
-python -m nuitka --standalone --onefile --windows-disable-console yt-x.py
+python -m nuitka --standalone --onefile --windows-disable-console --output-dir=dist yt-x.py
 
-# The EXE will be created in the dist folder
+# The EXE will be created in dist folder
 ```
+
+#### Using Build Scripts
+
+```powershell
+# PyInstaller build
+.\build-pyinstaller.bat
+
+# Nuitka build
+.\build.bat
+```
+
+### Troubleshooting Build Issues
+
+If build fails with Python 3.15+:
+1. Install Python 3.14 or earlier: https://www.python.org/downloads/
+2. Or use the pre-built EXE from releases
+3. Or use the batch file launcher (yt-x.bat)
 
 Or use the provided build script:
 
