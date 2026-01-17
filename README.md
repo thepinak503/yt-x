@@ -44,7 +44,7 @@ A modern, Windows-native terminal application for browsing YouTube and other yt-
 
 3. **Video Player** (Optional but recommended)
    - **VLC** (Best for m3u8 playlists): `winget install VideoLAN.VLC`
-   - **mpv**: `winget install mpv-player.mpv`
+   - **mpv**: `winget install mpv`
 
 ### Installing yt-x
 
