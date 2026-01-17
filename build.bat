@@ -59,10 +59,9 @@ python -m nuitka ^
     --follow-imports ^
     --include-package-data=textual ^
     --include-package-data=rich ^
-    --include-module=ytdlp ^
+    --include-package-data=ytdlp ^
     --include-module=requests ^
     --include-module=platformdirs ^
-    --windows-icon-from-ico=. ^
     yt-x.py
 
 if errorlevel 1 (
